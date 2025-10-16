@@ -11,8 +11,8 @@ OWNER = int(environ.get("OWNER_ID", ""))
 CREDIT = environ.get("CREDIT", "😇")
 cookies_file_path = os.getenv("cookies_file_path", "youtube_cookies.txt")
 
-TOTAL_USER = os.environ.get('TOTAL_USERS', OWNER_ID).split(',')
-TOTAL_USERS = [int(user_id) for user_id in TOTAL_USER]
+TOTAL_USER = os.environ.get('TOTAL_USERS', environ.get("OWNER_ID", "")).split(',')
+TOTAL_USERS = [int(user_id) for user_id in TOTAL_USER if user_id.strip().isdigit()]
 
 AUTH_USER = os.environ.get('AUTH_USERS', OWNER).split(',')
 AUTH_USERS = [int(user_id) for user_id in AUTH_USER]
@@ -23,6 +23,7 @@ if int(OWNER) not in AUTH_USERS:
 # api_url = "http://master-api-v3.vercel.app/"
 # api_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzkxOTMzNDE5NSIsInRnX3VzZXJuYW1lIjoi4p61IFtvZmZsaW5lXSIsImlhdCI6MTczODY5MjA3N30.SXzZ1MZcvMp5sGESj0hBKSghhxJ3k1GTWoBUbivUe1I"
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.
+
 
 
 
